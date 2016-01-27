@@ -1,0 +1,5 @@
+(global-linum-mode)
+(setq default-tab-width 2)
+(load-file "/apps/emacs_setup/files/multi-term.el")
+(setq multi-term-program "/bin/fish")
+(define-key evil-motion-state-map (kbd "C-i") 'evil-jump-forward)
