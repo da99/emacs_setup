@@ -9,9 +9,16 @@
 
 ;; Set a custom background for theme 'leuven:
 (if (eq (car dotspacemacs-themes) 'leuven)
+ (if (eq (window-system) 'x)
   (custom-set-faces
   '(default
      ((t (:background "#F7F7F7" )))
      )
-  )
-)
+  ) ;; custom-set-faces
+  (custom-set-faces
+  '(default
+     ((t (:background "color-255" )))
+     )
+  ) ;; custom-set-faces
+ ) ;; if
+) ;; if
