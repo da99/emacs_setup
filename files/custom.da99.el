@@ -5,4 +5,13 @@
 (setq multi-term-program "/bin/fish")
 (define-key evil-motion-state-map (kbd "C-i") 'evil-jump-forward)
 (spacemacs/toggle-truncate-lines-off)
-(add-to-list 'default-frame-alist '(background-color . "#FBFBFB"))
+(add-to-list 'custom-theme-load-path "/apps/emacs_setup/files/themes")
+
+;; Set a custom background for theme 'leuven:
+(if (eq (car dotspacemacs-themes) 'leuven)
+  (custom-set-faces
+  '(default
+     ((t (:background "#F7F7F7" )))
+     )
+  )
+)
