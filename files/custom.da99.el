@@ -1,10 +1,15 @@
 (global-linum-mode)
 (setq default-tab-width 2)
+
+
 (load-file "/apps/emacs_setup/files/multi-term.elc")
-(load-file "/apps/emacs_setup/files/whitespace.elc")
 (setq multi-term-program "/bin/fish")
+(setq shell-file-name "/bin/fish")
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(load-file "/apps/emacs_setup/files/whitespace.elc")
+
 (define-key evil-motion-state-map (kbd "C-i") 'evil-jump-forward)
-(spacemacs/toggle-truncate-lines-off)
+;; (spacemacs/toggle-truncate-lines-off)
 (add-to-list 'custom-theme-load-path "/apps/emacs_setup/files/themes")
 
 ;; Set a custom background for theme 'leuven:
@@ -22,3 +27,8 @@
   ) ;; custom-set-faces
  ) ;; if
 ) ;; if
+
+;; (call-interactively 'helm-M-x)
+;; Preload some libs at the cost of startup time:
+(require 'helm-command)
+(color-theme-approximate-on)
