@@ -1,4 +1,8 @@
-(global-linum-mode)
+
+
+
+(add-hook 'after-change-major-mode-hook
+          '(lambda () (hl-line-mode (if (equal major-mode 'term-mode) 0 1))))
 
 (setq js2-basic-offset 2)
 (setq js-indent-level 2)
@@ -78,3 +82,21 @@
   (split-window-vertically)
   (ansi-term "fish")
   )
+
+
+
+
+;; Overriding keyword faces:
+;; http://emacs.stackexchange.com/questions/19922/how-would-you-customize-a-subsection-of-keywords-in-a-major-mode-in-emacs/19954
+;; define the look for your modified keywords
+;; (defface my-keyword-face
+;;   '((default  :weight normal))
+;;   "Face for my own keywords.")
+
+;; ;; define the keywords you want to modify
+;; (defvar my-modified-js-keywords
+;;   '(("\\<\\(throw\\)\\>" . 'my-keyword-face)
+;;     ("\\<\\(Error\\)\\>" . 'my-keyword-face)))
+
+;; ;; modify the keywords
+;; (font-lock-add-keywords 'js-mode my-modified-js-keywords)
