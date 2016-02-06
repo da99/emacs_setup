@@ -49,6 +49,25 @@ case $action in
     bash_setup print_help $0
     ;;
 
+  switch)
+    nums="$(find "$THIS_DIR/tmp" -mindepth 1 -maxdepth 1 -type d -iname "*emacs*" | xargs -I DIR basename DIR)"
+    if [[ -z "$@" ]]; then
+      cat -n <(echo -e "$nums")
+      exit 0
+    fi
+    dir="$(echo -e "$nums" | tail -n+"$1" | head -n 1)"
+    full="$THIS_DIR/tmp/$dir"
+    if [[ ! -d "$full" ]]; then
+      echo "!!! invalid selection" 1>&2
+      exit 1
+    fi
+
+    set -x
+    rm ~/.emacs.d
+    ln -s "$full" "$HOME/.emacs.d"
+    exit 0
+    ;;
+
   install)
     # === install
     if [[ ! -f ~/.spacemacs ]]; then
