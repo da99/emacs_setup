@@ -77,6 +77,7 @@ case $action in
       bash_setup make_link $THIS_DIR/tmp/.emacs.d.spacemacs $HOME/.emacs.d
     fi
     ;;
+
   *)
     $action $THE_ARGS
     ;;
