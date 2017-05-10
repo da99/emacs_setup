@@ -71,10 +71,10 @@ case $action in
   install)
     # === install
     if [[ ! -f ~/.spacemacs ]]; then
-      bash_setup make_link $THIS_DIR/files/.spacemacs $HOME/.spacemacs
+      my_bash make_link $THIS_DIR/files/.spacemacs $HOME/.spacemacs
     fi
     if [[ ! -d ~/.emacs.d && -d tmp/.emacs.d.spacemacs ]]; then
-      bash_setup make_link $THIS_DIR/tmp/.emacs.d.spacemacs $HOME/.emacs.d
+      my_bash make_link $THIS_DIR/tmp/.emacs.d.spacemacs $HOME/.emacs.d
     fi
     ;;
 
